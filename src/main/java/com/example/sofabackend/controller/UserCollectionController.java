@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NO_CONTENT;
@@ -34,13 +33,13 @@ public class UserCollectionController {
     }
 
     @GetMapping("/list")
-    public List<UserCollection> getList(@RequestParam String openid) {
-        return userCollectionService.getCollections(openid);
+    public List<UserCollection> getList(@RequestParam String openId) {
+        return userCollectionService.getCollections(openId);
     }
 
     @GetMapping
     public boolean isCollected(
-            @RequestParam String collectionid, @RequestParam String openid) {
-        return userCollectionService.isCollected(collectionid, openid);
+            @RequestParam String collectionId, @RequestParam String openId) {
+        return userCollectionService.isCollected(collectionId, openId);
     }
 }

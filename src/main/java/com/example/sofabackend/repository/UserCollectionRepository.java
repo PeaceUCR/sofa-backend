@@ -11,12 +11,12 @@ import java.util.List;
 
 @Repository
 public interface UserCollectionRepository extends JpaRepository<UserCollection, String> {
-    List<UserCollection> findAllByOpenid(String openid);
+    List<UserCollection> findAllByOpenId(String openId);
 
-    boolean existsByCollectionidAndOpenid(String collectionid, String openid);
+    boolean existsByCollectionIdAndOpenId(String collectionId, String openId);
 
     @Modifying
-    @Query(value = "delete from user_collections where collectionid = :collectionid and openid = :openid",
+    @Query(value = "delete from user_collections where collectionId = :collectionId and openId = :openId",
             nativeQuery = true)
-    void deleteByCollectionidAndOpenid(@Param("collectionid") String collectionid, @Param("openid") String openid);
+    void deleteByCollectionIdAndOpenId(@Param("collectionId") String collectionId, @Param("openId") String openId);
 }
