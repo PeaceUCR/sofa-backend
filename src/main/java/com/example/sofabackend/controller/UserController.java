@@ -21,18 +21,18 @@ public class UserController {
         return userService.addUser(requestDto);
     }
 
-    @GetMapping("/{id}")
-    public User findByOpenId(@PathVariable String id) {
-        return userService.findByOpenId(id);
+    @GetMapping("/{openId}")
+    public User findByOpenId(@PathVariable("openId") String openId) {
+        return userService.findByOpenId(openId);
     }
 
-    @PutMapping("/record/{id}")
-    public User record(@PathVariable String openId) {
+    @PutMapping("/record/{openId}")
+    public User record(@PathVariable("openId") String openId) {
         return userService.record(openId);
     }
 
-    @PutMapping("/add/{id}")
-    public User add(@PathVariable String openId) {
+    @PutMapping("/add/{openId}")
+    public User add(@PathVariable("openId") String openId) {
         return userService.addScore(openId);
     }
 
