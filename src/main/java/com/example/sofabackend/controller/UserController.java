@@ -36,4 +36,9 @@ public class UserController {
         return userService.addScore(openId);
     }
 
+    @PutMapping("/checkBeforeCopy/{openId}")
+    public User checkBeforeCopy(@PathVariable("openId") String openId) {
+        return userService.checkBeforeCopy(openId);
+    }
+
 }

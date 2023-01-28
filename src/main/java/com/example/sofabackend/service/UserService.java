@@ -40,4 +40,13 @@ public class UserService {
         user.setScore(user.getScore() + 1);
         return userRepository.save(user);
     }
+
+    public User checkBeforeCopy(String openid) {
+        User user = userRepository.findByOpenId(openid);
+        if (user.getScore() < 1) {
+            throw new IllegalArgumentException("No score to copy");
+        }
+        user.setScore(user.getScore() - 1);
+        return userRepository.save(user);
+    }
 }
