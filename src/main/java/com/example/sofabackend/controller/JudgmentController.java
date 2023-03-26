@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class JudgmentController {
 
     private final JudgmentRepository judgmentRepository;
-    @GetMapping("/list")
+    @PostMapping("/list")
     public List<JudgmentResponseDto> getList(@RequestBody JudgmentSearchRequestDto requestDto) {
         Page<Judgment> judgments = judgmentRepository.findAll(requestDto);
         return judgments.getContent().stream().map(JudgmentResponseDto::from).collect(Collectors.toList());
