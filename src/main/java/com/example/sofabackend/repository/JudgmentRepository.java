@@ -51,4 +51,6 @@ public interface JudgmentRepository extends JpaRepository<Judgment, String>, Jpa
         }, pageRequest);
 
     }
+
+    Judgment findByRowKey(String rowKey);
 }

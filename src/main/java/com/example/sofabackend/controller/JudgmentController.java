@@ -22,4 +22,10 @@ public class JudgmentController {
         Page<Judgment> judgments = judgmentRepository.findAll(requestDto);
         return judgments.getContent().stream().map(JudgmentResponseDto::from).collect(Collectors.toList());
     }
+
+    @GetMapping("/{rowKey}")
+    public JudgmentResponseDto findByRowKey(@PathVariable("rowKey") String rowKey) {
+        Judgment judgment = judgmentRepository.findByRowKey(rowKey);
+        return JudgmentResponseDto.from(judgment);
+    }
 }
